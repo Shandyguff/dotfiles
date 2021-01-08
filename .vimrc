@@ -2,6 +2,7 @@ set encoding=utf-8
 scriptencoding utf-8
 syntax on
 set t_Co=256
+set clipboard=unnamedplus
 
 set fileencoding=utf-8
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932
@@ -65,15 +66,40 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'vim-airline/vim-airline'
 Plug 'wakatime/vim-wakatime'
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'pangloss/vim-javascript'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/goyo.vim'
+Plug 'neoclide/coc.nvim'
+Plug 'junegunn/vim-easy-align'
+Plug 'jiangmiao/auto-pairs'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
 set termguicolors
 
-let g:tokyonight_style = 'night'
-let g:tokyonight_enable_italic = 1
+colorscheme gruvbox
+set background=dark
 
-colorscheme tokyonight
+set laststatus=2
+
+set noshowmode
+let g:lightline = {
+    \ 'colorscheme': 'gruvbox',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'FugitiveHead'
+    \ },
+    \ }
